@@ -9,33 +9,24 @@ import com.mgo.project.domain.User;
 
 public interface UserService {
 	 /**
-     * Creates a new todo entry.
-     * @param todo  The information of the created todo entry.
-     * @return      The information of the created todo entry.
+     * Creates a new user entry.
+     * @param user  The information of the created user entry.
+     * @return      The information of the created user entry.
      */
 	public User create(User user) ;
 
     /**
-     * Finds all todo entries.
-     * @return      The information of all todo entries.
+     * Finds all user entries.
+     * @return      The information of all user entries.
      */
     List<User> findAll();
     
-//    /**
-//     * Finds all todo entries.
-//     * @return      The information of all todo entries.
-//     */
-//    List<User> findAllPaged(PageRequest pageRequest);
 
     /**
-     * Finds a single todo entry.
-     * @param id    The id of the requested todo entry.
-     * @return      The information of the requested todo entry.
-     * @throws com.javaadvent.bootrest.todo.TodoNotFoundException if no todo entry is found.
+     * Finds a single user entry.
+     * @param city    The id of the requested user entry.
+     * @return      List of users .
      */
     List<User> findByCity(String city);
     
-    //List<User>findByCityGroupedByProf(String city , String prof);
-
-
 }

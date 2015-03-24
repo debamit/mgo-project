@@ -8,12 +8,6 @@ import com.mgo.project.domain.UserModel;
 
 
 public interface AccountService {
-    /**
-     * Creates a new UserModel entry.
-     * @param userModel  The information to create the account.
-     * @return      The information of the created account.
-     */
-	UserModel create(UserModel userModel);
     
     /**
      * Creates a new UserModel entry.

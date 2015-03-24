@@ -16,12 +16,6 @@ public class AccountServiceImpl implements AccountService {
     }
 
 	@Override
-	public UserModel create(UserModel userModel) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public UserModel verify(String userName) {
 		return repository.findByUsername(userName);
 	}

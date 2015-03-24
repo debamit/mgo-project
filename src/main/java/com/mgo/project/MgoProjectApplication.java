@@ -27,7 +27,9 @@ public class MgoProjectApplication {
         	userRepository.save(new User("q.clark@young.com", "Eric", "Lopez", "Los Angeles",
         			"CA", "software engg"));
         	userRepository.save(new User("d.dutta@mgo.com", "D", "Dutta", "Charlotte",
-        			"CA", "actor"));
+        			"NC", "actor"));
+        	userRepository.save(new User("m.test@mgo.com", "Mtest", "test", "San Deigo",
+        			"CA", "Model"));
         }
         
       };
