@@ -1,7 +1,12 @@
 package com.mgo.project;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import com.mgo.project.domain.User;
+import com.mgo.project.repo.UserRepository;
 
 @SpringBootApplication
 public class MgoProjectApplication {
@@ -12,21 +17,22 @@ public class MgoProjectApplication {
       
     }
 
-//    @Bean
-//    CommandLineRunner init(final AccountRepository accountRepository) {
-//      
-//      return new CommandLineRunner() {
-// 
-//        @Override
-//        public void run(String... arg0) throws Exception {
-//        	accountRepository.save(new UserModel("user", "password",
-//    				"test1", "test1", 1));
-//          
-//        }
-//        
-//      };
-// 
-//    }
+    @Bean
+    CommandLineRunner init(final UserRepository userRepository) {
+      
+      return new CommandLineRunner() {
+ 
+        @Override
+        public void run(String... arg0) throws Exception {
+        	userRepository.save(new User("q.clark@young.com", "Eric", "Lopez", "Los Angeles",
+        			"CA", "software engg"));
+        	userRepository.save(new User("d.dutta@mgo.com", "D", "Dutta", "Charlotte",
+        			"CA", "actor"));
+        }
+        
+      };
+ 
+    }
     
     
 }
