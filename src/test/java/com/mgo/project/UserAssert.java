@@ -1,6 +1,7 @@
 package com.mgo.project;
 
 import org.assertj.core.api.AbstractAssert;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.mgo.project.domain.User;
 
@@ -17,67 +18,90 @@ public class UserAssert extends AbstractAssert<UserAssert, User>{
         return new UserAssert(actual);
     }
 
-    UserAssert hasDescription(String expectedDescription) {
+    UserAssert hasFirstName(String expectedFirstName) {
         isNotNull();
 
-        String actualDescription = actual.getDescription();
-        assertThat(actualDescription)
+        String actualFirstName = actual.getFirstName();
+        assertThat(actualFirstName)
                 .overridingErrorMessage("Expected description to be <%s> but was <%s>",
-                        expectedDescription,
-                        actualDescription
+                        expectedFirstName,
+                        actualFirstName
                 )
-                .isEqualTo(expectedDescription);
+                .isEqualTo(expectedFirstName);
 
         return this;
     }
-
-    UserAssert hasId(String expectedId) {
+    
+    UserAssert hasLastName(String expectedLastName) {
         isNotNull();
 
-        String actualId = actual.getId();
-        assertThat(actualId)
-                .overridingErrorMessage("Expected id to be <%s> but was <%s>",
-                        expectedId,
-                        actualId
+        String actualLastName = actual.getFirstName();
+        assertThat(actualLastName)
+                .overridingErrorMessage("Expected description to be <%s> but was <%s>",
+                		expectedLastName,
+                        actualLastName
                 )
-                .isEqualTo(expectedId);
+                .isEqualTo(expectedLastName);
 
         return this;
     }
-
-    UserAssert hasNoDescription() {
+    
+    
+    UserAssert hasEmail(String expectedEmail) {
         isNotNull();
 
-        String actualDescription = actual.getDescription();
-        assertThat(actualDescription)
-                .overridingErrorMessage("Expected description to be <null> but was <%s>", actualDescription)
-                .isNull();
-
-        return this;
-    }
-
-    UserAssert hasNoId() {
-        isNotNull();
-
-        String actualId = actual.getId();
-        assertThat(actualId)
-                .overridingErrorMessage("Expected id to be <null> but was <%s>", actualId)
-                .isNull();
-
-        return this;
-    }
-
-    UserAssert hasTitle(String expectedTitle) {
-        isNotNull();
-
-        String actualTitle = actual.getTitle();
-        assertThat(actualTitle)
-                .overridingErrorMessage("Expected title to be <%s> but was <%s>",
-                        expectedTitle,
-                        actualTitle
+        String actualEmail = actual.getEmail();
+        assertThat(actualEmail)
+                .overridingErrorMessage("Expected description to be <%s> but was <%s>",
+                		expectedEmail,
+                		actualEmail
                 )
-                .isEqualTo(expectedTitle);
+                .isEqualTo(expectedEmail);
 
         return this;
     }
+
+    
+    UserAssert hasCity(String expectedCity) {
+        isNotNull();
+
+        String actualCity = actual.getCity();
+        assertThat(actualCity)
+                .overridingErrorMessage("Expected description to be <%s> but was <%s>",
+                		expectedCity,
+                		actualCity
+                )
+                .isEqualTo(expectedCity);
+
+        return this;
+    }
+    
+    UserAssert hasState(String expectedState) {
+        isNotNull();
+
+        String actualState = actual.getState();
+        assertThat(actualState)
+                .overridingErrorMessage("Expected description to be <%s> but was <%s>",
+                		expectedState,
+                		actualState
+                )
+                .isEqualTo(expectedState);
+
+        return this;
+    }
+    
+    UserAssert hasProfession(String expectedProfession) {
+        isNotNull();
+
+        String actualProfession = actual.getProfession();
+        assertThat(actualProfession)
+                .overridingErrorMessage("Expected description to be <%s> but was <%s>",
+                		expectedProfession,
+                		actualProfession
+                )
+                .isEqualTo(expectedProfession);
+
+        return this;
+    }
+
 }

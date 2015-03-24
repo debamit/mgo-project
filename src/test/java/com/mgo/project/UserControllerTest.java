@@ -31,17 +31,12 @@ public class UserControllerTest {
             Charset.forName("utf8")
     );
 
-    private static final String ID = "description";
-    private static final String EMAIL = "id";
-    private static final String FIRSTNAME = "title";
-    private static final String LASTNAME = "description";
-    private static final String CITY = "id";
-    private static final String STATE = "title";
-    private static final String PROFESSION = "description";
-
-    
-    private static final int MAX_LENGTH_DESCRIPTION = 500;
-    private static final int MAX_LENGTH_TITLE = 100;
+    private static final String EMAIL = "email";
+    private static final String FIRSTNAME = "firstname";
+    private static final String LASTNAME = "lastname";
+    private static final String CITY = "city";
+    private static final String STATE = "state";
+    private static final String PROFESSION = "sales";
 
     @Mock
     private UserService userService;

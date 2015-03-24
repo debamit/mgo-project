@@ -30,13 +30,13 @@ private static final Logger LOGGER = LoggerFactory.getLogger(UserController.clas
 	String checkSatus(){
 		try {
 			if(repo.checkStatus()){
-				return "Mongo db is ok";
+				return "Mongo db is up";
 			}
 		}
 		catch(Exception ex){
 			return ex.getMessage();
 		}
-		return "Db is down";
+		return "Mongo Status";
 		
 	}
 	

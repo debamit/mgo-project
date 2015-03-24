@@ -1,36 +1,32 @@
 package com.mgo.project;
 
-import static com.javaadvent.bootrest.todo.TodoAssert.assertThatTodo;
-import static com.javaadvent.bootrest.todo.TodoDTOAssert.assertThatTodoDTO;
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
-import java.util.Optional;
-
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
-import org.springframework.test.util.ReflectionTestUtils;
-
+import org.mockito.runners.MockitoJUnitRunner;
 import com.mgo.project.domain.User;
 import com.mgo.project.repo.UserRepository;
 import com.mgo.project.service.UserServiceImpl;
+import static com.mgo.project.UserAssert.assertThatUser;
 
 
-
+@RunWith(MockitoJUnitRunner.class)
 public class UserServiceImplTest {
 
-    private static final String ID = "description";
-    private static final String EMAIL = "id";
-    private static final String FIRSTNAME = "title";
-    private static final String LASTNAME = "description";
-    private static final String CITY = "id";
-    private static final String STATE = "title";
-    private static final String PROFESSION = "description";
+    private static final String EMAIL = "email";
+    private static final String FIRSTNAME = "firstname";
+    private static final String LASTNAME = "lastname";
+    private static final String CITY = "los angeles";
+    private static final String STATE = "CA";
+    private static final String PROFESSION = "sales";
 
     @Mock
     private UserRepository repository;
@@ -56,35 +52,14 @@ public class UserServiceImplTest {
         verifyNoMoreInteractions(repository);
 
         User savedUser = savedUserArgument.getValue();
-        assertThatUser(savedUser).hasEmail(EMAIL).hasFirstName(FIRSTNAME);
+        assertThatUser(savedUser).hasEmail(EMAIL)
+        						 .hasFirstName(FIRSTNAME)
+        						 .hasLastName(LASTNAME)
+        						 .hasCity(CITY)
+        						 .hasState(STATE)
+        						 .hasProfession(PROFESSION);
                 
     }
 
-    @Test
-    public void create_ShouldReturnTheInformationOfCreatedTodoEntry() {
-        TodoDTO newTodo = new TodoDTOBuilder()
-                .title(TITLE)
-                .description(DESCRIPTION)
-                .build();
-
-        when(repository.save(isA(Todo.class))).thenAnswer(invocation -> {
-            Todo persisted = (Todo) invocation.getArguments()[0];
-            ReflectionTestUtils.setField(persisted, "id", ID);
-            return persisted;
-        });
-
-        TodoDTO returned = service.create(newTodo);
-
-        assertThatTodoDTO(returned)
-                .hasId(ID)
-                .hasTitle(TITLE)
-                .hasDescription(DESCRIPTION);
-    }
-
-    @Test(expected = TodoNotFoundException.class)
-    public void delete_TodoEntryNotFound_ShouldThrowException() {
-        when(repository.findOne(ID)).thenReturn(Optional.empty());
-
-        service.findById(ID);
-    }
+ 
 }

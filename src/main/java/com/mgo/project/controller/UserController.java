@@ -17,7 +17,7 @@ import com.mgo.project.domain.User;
 import com.mgo.project.service.UserService;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api")
 public class UserController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 	
@@ -29,6 +29,7 @@ public class UserController {
         this.userService = userService;
     }
 
+	// for paged user list
 //	@RequestMapping(method = RequestMethod.GET)
 //	List<User> findAllUsers(@RequestParam(value = "page", defaultValue = "0", required = false) int page,
 //            @RequestParam(value = "count", defaultValue = "10", required = false) int count,
@@ -39,20 +40,20 @@ public class UserController {
 //	}
 	
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value="/user",method = RequestMethod.GET)
 	List<User> findAll(){
 		return userService.findAll();
 	}
 	
 
 
-	@RequestMapping(value="/filter",method = RequestMethod.GET)
+	@RequestMapping(value="/user/filter",method = RequestMethod.GET)
 	List<User> findUsersByCity(@RequestParam (value="city", required = true)String city){
 		List<User> users = userService.findByCity(city);
 		return users;
 	}
 		
-	@RequestMapping(value="/create",method = RequestMethod.POST)
+	@RequestMapping(value="/user/create",method = RequestMethod.POST)
 	User createUser(@RequestBody @Valid User user)
 			{
 		return userService.create(user);
